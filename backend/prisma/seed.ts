@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.user.deleteMany();
   await prisma.post.deleteMany();
+  await prisma.a.deleteMany();
 
   console.log('Seeding...');
 
@@ -26,11 +27,11 @@ async function main() {
   });
   const user2 = await prisma.user.create({
     data: {
-      email: 'bart@simpson.com',
-      firstname: 'Bart',
-      lastname: 'Simpson',
+      email: '928783975@qq.com',
+      firstname: 'Wang',
+      lastname: 'Ming',
       role: 'ADMIN',
-      password: '$2b$10$EpRnTzVlqHNP0.fUbXUwSOyuiXe/QLSUG6xNekdHgTGmrpHEfIoxm', // secret42
+      password: '$10$0Tv6sPZH190ffV4l4WY7qupnocfJzMdY8RdKxDdLaLarouilDEuoC', // secret42
       posts: {
         create: [
           {
@@ -42,6 +43,13 @@ async function main() {
             title: 'Follow Prisma on Twitter',
             content: 'https://twitter.com/prisma',
             published: false,
+          },
+        ],
+      },
+      A: {
+        create: [
+          {
+            c: '测试',
           },
         ],
       },

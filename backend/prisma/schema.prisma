@@ -22,6 +22,7 @@ model User {
   lastname  String?
   posts     Post[]
   role      Role
+  A         A[]
 }
 
 model Post {
@@ -33,6 +34,13 @@ model Post {
   content   String?
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  String?
+}
+
+model A {
+  id     String  @id @default(uuid())
+  c      String?
+  aid    String?
+  author User?   @relation(fields: [aid], references: [id])
 }
 
 enum Role {

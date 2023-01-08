@@ -12,6 +12,7 @@ Table User {
   lastname String
   posts Post [not null]
   role Role [not null]
+  A A [not null]
 }
 
 Table Post {
@@ -25,9 +26,18 @@ Table Post {
   authorId String
 }
 
+Table A {
+  id String [pk]
+  c String
+  aid String
+  author User
+}
+
 Enum Role {
   ADMIN
   USER
 }
 
 Ref: Post.authorId > User.id
+
+Ref: A.aid > User.id
